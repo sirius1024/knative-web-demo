@@ -1,8 +1,8 @@
 FROM golang:alpine AS builder
 RUN echo $GOPATH
-RUN apk add build-base --no-cache --update-cache --repository https://mirrors.aliyun.com/alpine/latest-stable/main/ --allow-untrusted
+RUN apk add build-base git --no-cache --update-cache --repository https://mirrors.aliyun.com/alpine/latest-stable/main/ --allow-untrusted
 ENV GO111MODULE=on
-ENV GOPROXY="https://goproxy.io"
+# ENV GOPROXY="https://goproxy.io"
 RUN adduser -D -g 'root' appuser
 WORKDIR /go/src/github.com/sirius1024/knative-web-demo
 COPY . .
